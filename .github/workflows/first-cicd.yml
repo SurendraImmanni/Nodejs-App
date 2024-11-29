@@ -1,0 +1,46 @@
+name: CI/CD Pipeline for webapplication
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  build:
+    runs-on: ami-0614680123427b75e
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '22'
+
+    - name: Install dependencies
+      run: |
+        cd webapp  
+        npm install
+
+    - name: Run Unit Tests
+      run: | 
+        cd webapp
+        npm test
+        echo "Tests run successfully"
+
+    - name: Build Docker Image
+      run: |
+        cd webapp
+        sudo docker build -t firstimage:2.0 -f Dockerfile .
+
+  deploy:
+    runs-on: ami-0614680123427b75e
+    needs: build
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Ansible Playbook
+      run: |
+        ansible-playbook -i /home/ec2-user/Application/nodejs-app/webapp/inventory /home/ec2-user/Application/nodejs-app/webapp/deploy.yml
