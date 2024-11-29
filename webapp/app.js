@@ -4,7 +4,7 @@ const app=express()
 const port=3000
 
 app.get("/",(req, res)=>{
-    res.send("Welcome to DevOps World, this is my first task");
+    res.send("Welcome to DevOps World");
 
 });
 
