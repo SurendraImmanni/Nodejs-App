@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd webapp  
-        sudo npm install
+        npm install
 
     - name: Fix permissions for jest binary
       run: |
