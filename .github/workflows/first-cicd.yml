@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ami-0614680123427b75e
+    runs-on: self-hosted
 
     steps:
     - name: Checkout code
@@ -35,7 +35,7 @@ jobs:
         sudo docker build -t firstimage:2.0 -f Dockerfile .
 
   deploy:
-    runs-on: ami-0614680123427b75e
+    runs-on: self-hosted
     needs: build
     steps:
     - name: Checkout code
