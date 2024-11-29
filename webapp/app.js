@@ -4,10 +4,17 @@ const app=express()
 const port=3000
 
 app.get("/",(req, res)=>{
-    res.send("Welcome to DevOps World")
+    res.send("Welcome to DevOps World");
 
-})
+});
+
+// Export the app for testing purposes
+export default app;
+
+// Only start the server if this file is directly executed (not during tests)
+if (require.main === module) {
 
 app.listen(port, ()=>{
     console.log( `Application is running in ${port}` )
 })
+}
