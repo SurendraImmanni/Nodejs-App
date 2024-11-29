@@ -6,7 +6,7 @@ describe("GET /", () => {
     const response = await request(app).get("/");
 
     expect(response.status).toBe(200);
-    expect(response.text).toBe("Welcome to DevOps World");
+    expect(response.text).toBe("Welcome to DevOps World, this is my first task");
   });
 });
 
