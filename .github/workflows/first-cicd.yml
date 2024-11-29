@@ -41,7 +41,7 @@ jobs:
 
   deploy:
     runs-on: self-hosted
-    needs: build # deleted container with port 3000
+    needs: build 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
