@@ -12,8 +12,7 @@ app.get("/",(req, res)=>{
 export default app;
 
 // Only start the server if this file is directly executed (not during tests)
-if (require.main === module) {
-
+if (import.meta.url === new URL(import.meta.url).href) {
 app.listen(port, ()=>{
     console.log( `Application is running in ${port}` )
 })
