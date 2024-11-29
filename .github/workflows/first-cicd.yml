@@ -21,7 +21,12 @@ jobs:
     - name: Install dependencies
       run: |
         cd webapp  
-        npm install
+        sudo npm install
+
+    - name: Fix permissions for jest binary
+      run: |
+        sudo chmod -R 755 webapp/node_modules/.bin
+        sudo chown -R ec2-user:ec2-user webapp/node_modules/.bin
 
     - name: Run Unit Tests
       run: | 
