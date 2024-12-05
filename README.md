@@ -135,7 +135,8 @@ see below image for reference
     e) Create a ansible playbook file
     
     see the below image for reference
-![Screenshot 33](https://github.com/user-attachments/assets/a1737955-3b02-4bfb-9520-87eb2204fabb)
+![Screenshot playbook](https://github.com/user-attachments/assets/bb088ca2-f646-4a4e-a6bd-d1c4e42691c8)
+
 ![Screenshot 32](https://github.com/user-attachments/assets/8c72173e-043f-40af-bc63-b9d252ff06f0)
 
 f) Run the ansible playbook file to install, build docker image and containarize the image
